@@ -1,5 +1,5 @@
 [package]
-name = "system_error"
+name = "system-error"
 version = "0.1.0"
 authors = ["Jeremy Larkin <jeremylarkin@gmail.com>"]
 license = "MIT"
