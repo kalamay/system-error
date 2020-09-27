@@ -32,7 +32,7 @@
 //! );
 //! assert_eq!(
 //!     format!("{:?}", kern_error),
-//!     "Error { kind: PermissionDenied, message: \"Unknown error (kernel error 8)\" }"
+//!     "Error { kind: Other, message: \"Unknown error (kernel error 8)\" }"
 //! );
 //! # }
 //! ```
@@ -94,7 +94,7 @@
 //! );
 //! assert_eq!(
 //!     format!("{:?}", kern_error),
-//!     "Error { kind: PermissionDenied, message: \"Unknown error (kernel error 8)\" }"
+//!     "Error { kind: Other, message: \"Unknown error (kernel error 8)\" }"
 //! );
 //! # }
 //! ```
