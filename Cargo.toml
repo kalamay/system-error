@@ -2,6 +2,11 @@
 name = "system_error"
 version = "0.1.0"
 authors = ["Jeremy Larkin <jeremylarkin@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/kalamay/system-error"
+documentation = "https://docs.rs/system-error"
+description = "A library for cross platform system errors"
+keywords = ["error", "system-error", "kern_return_t"]
 edition = "2018"
 
 [dependencies]
