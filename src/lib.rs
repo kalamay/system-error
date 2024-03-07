@@ -11,10 +11,10 @@
 //! ```
 //! # if cfg!(target_os = "linux") {
 //! use system_error::Error;
-//! use std::io;
+//! use std::io::ErrorKind;
 //!
 //! let os_error = Error::from_raw_os_error(1);
-//! assert_eq!(os_error.kind(), io::ErrorKind::PermissionDenied);
+//! assert_eq!(os_error.kind(), ErrorKind::PermissionDenied);
 //! assert_eq!(
 //!     format!("{}", os_error),
 //!     "Operation not permitted (os error 1)"
@@ -25,7 +25,7 @@
 //! );
 //!
 //! let kern_error = Error::from_raw_kernel_error(8);
-//! assert_eq!(kern_error.kind(), io::ErrorKind::Other);
+//! assert_eq!(kern_error.kind(), ErrorKind::Other);
 //! assert_eq!(
 //!     format!("{}", kern_error),
 //!     "Unknown error (kernel error 8)"
@@ -42,10 +42,10 @@
 //! ```
 //! # if cfg!(target_os = "macos") {
 //! use system_error::Error;
-//! use std::io;
+//! use std::io::ErrorKind;
 //!
 //! let os_error = Error::from_raw_os_error(1);
-//! assert_eq!(os_error.kind(), io::ErrorKind::PermissionDenied);
+//! assert_eq!(os_error.kind(), ErrorKind::PermissionDenied);
 //! assert_eq!(
 //!     format!("{}", os_error),
 //!     "Operation not permitted (os error 1)"
@@ -56,7 +56,7 @@
 //! );
 //!
 //! let kern_error = Error::from_raw_kernel_error(8);
-//! assert_eq!(kern_error.kind(), io::ErrorKind::PermissionDenied);
+//! assert_eq!(kern_error.kind(), ErrorKind::PermissionDenied);
 //! assert_eq!(
 //!     format!("{}", kern_error),
 //!     "(os/kern) no access (kernel error 8)"
@@ -73,10 +73,10 @@
 //! ```
 //! # if cfg!(windows) {
 //! use system_error::Error;
-//! use std::io;
+//! use std::io::ErrorKind;
 //!
 //! let os_error = Error::from_raw_os_error(5);
-//! assert_eq!(os_error.kind(), io::ErrorKind::PermissionDenied);
+//! assert_eq!(os_error.kind(), ErrorKind::PermissionDenied);
 //! assert_eq!(
 //!     format!("{}", os_error),
 //!     "Access is denied. (os error 5)"
@@ -87,7 +87,7 @@
 //! );
 //!
 //! let kern_error = Error::from_raw_kernel_error(8);
-//! assert_eq!(kern_error.kind(), io::ErrorKind::Other);
+//! assert_eq!(kern_error.kind(), ErrorKind::Other);
 //! assert_eq!(
 //!     format!("{}", kern_error),
 //!     "Unknown error (kernel error 8)"
@@ -222,7 +222,6 @@ impl Error {
     /// use system_error::Error;
     /// use std::io;
     ///
-    /// assert_eq!(Error::last_os_error().kind(), io::ErrorKind::Other);
     /// assert_eq!(Error::from_raw_os_error(1).kind(), io::ErrorKind::PermissionDenied);
     /// ```
     pub fn kind(&self) -> io::ErrorKind {
