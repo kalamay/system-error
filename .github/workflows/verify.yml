@@ -1,6 +1,6 @@
 name: 'foo'
 on:
-  pull_request:
+  push:
 
 name: Verify
 
