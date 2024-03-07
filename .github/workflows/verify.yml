@@ -1,11 +1,5 @@
 name: 'foo'
-on:
-  push:
-    branches:
-      - "**"
-  pull_request:
-    branches:
-      - "master"
+on: [push]
 
 name: Verify
 
