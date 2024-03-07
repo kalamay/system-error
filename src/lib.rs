@@ -219,10 +219,12 @@ impl Error {
     /// # Examples
     ///
     /// ```
+    /// # if cfg!(not(target_os = "windows")) {
     /// use system_error::Error;
     /// use std::io;
     ///
     /// assert_eq!(Error::from_raw_os_error(1).kind(), io::ErrorKind::PermissionDenied);
+    /// # }
     /// ```
     pub fn kind(&self) -> io::ErrorKind {
         match self.0 {
