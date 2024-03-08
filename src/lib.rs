@@ -337,9 +337,9 @@ impl fmt::Display for Error {
     }
 }
 
-impl Into<io::Error> for Error {
-    fn into(self) -> io::Error {
-        match self.0 {
+impl From<Error> for io::Error {
+    fn from(err: Error) -> Self {
+        match err.0 {
             Type::Os(code) => io::Error::from_raw_os_error(code),
             Type::Kernel(code) => {
                 let err = KernelError::new(code);
